@@ -33,6 +33,12 @@ td {
     cursor: pointer;
 }
 
+table{
+    /* border-collapse: collapse; */
+    position: absolute;
+}
+
+
 table tr:first-child td {
     border-top: 0;
 }
@@ -47,4 +53,9 @@ table tr td:first-child {
 
 table tr td:last-child {
     border-right: 0;
+}
+
+
+.cell.highlight{
+    background-color: red;
 }
