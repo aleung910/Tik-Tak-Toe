@@ -14,20 +14,33 @@ const winningCombos = [
     [6, 4, 2],
 ]
 
+// function checkForWinner(){
+//     winningCombos.forEach(function(combination){
+//         let check= combination.every(i =>cells[i].innerText.trim()==currentPlayer)
+//         if (check){
+//             alert(currentPlayer + "has won")
+//         }
+//     })
+// }
+
 function checkForWinner(){
     winningCombos.forEach(function(combination){
-        let check= combination.every(i =>cells[i].innerText.trim()==currentPlayer)
+        let check= combination.every(i => cells[i].innerText.trim() == currentPlayer)
         if (check){
-            alert(currentPlayer + "has won")
+         //   alert(currentPlayer +' has won')
+         highlightCells(combination)
         }
     })
 }
 
-// function highlightCells(combination){
-//     combination.foreach(function(index){
-//         cells[index].classList.add('highlight')
-//     })
-// }
+
+
+
+function highlightCells(combination){
+    combination.foreach(function(index){
+        cells[index].classList.add('highlight')
+    })
+}
 
 
 cells.forEach(function(cell){
@@ -36,6 +49,7 @@ cells.forEach(function(cell){
         if (cell.innerText.trim() != "") return //if already cliekd 
 
         cell.innerText= currentPlayer
+        checkForWinner()
         currentPlayer = currentPlayer =="X" ? "O": "X"
     })
 })
